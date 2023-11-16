@@ -93,6 +93,8 @@ public class Payment {
 	private String qrCodeBase64Image;
 	@SerializedName("ExternalAuthentication")
 	private ExternalAuthentication externalAuthentication;
+	@SerializedName("InitiatedTransactionIndicator")
+	private InitiatedTransactionIndicator initiatedTransactionIndicator;
 
 	public Payment(Integer amount, Integer installments) {
 		setAmount(amount);
@@ -481,4 +483,54 @@ public class Payment {
         this.externalAuthentication = externalAuthentication;
 		return this;
     }
+
+	public InitiatedTransactionIndicator getInitiatedTransactionIndicator() {
+		return this.initiatedTransactionIndicator;
+	}
+
+	public Payment setInitiatedTransactionIndicator(InitiatedTransactionIndicator initiatedTransactionIndicator) {
+		this.initiatedTransactionIndicator = initiatedTransactionIndicator;
+		return this;
+	}
+
+	/**
+	 * Categoria do indicador de início da transação. Válido apenas para bandeira Mastercard.
+	 *
+	 * Valores possíveis:
+	 * - “C1”: transação inciada pelo portador do cartão;
+	 * - “M1”: transação recorrente ou parcelada iniciada pela loja;
+	 * - “M2”: transação iniciada pela loja.
+	 */
+	public enum Category {
+		C1,
+		M1,
+		M2
+	}
+
+	/**
+	 * Subcategoria do indicador. Válido apenas para bandeira Mastercard.
+	 * Valores possíveis:
+	 *
+	 * Se InitiatedTransactionIndicator.Category = “C1” ou “M1”
+	 * - CredentialsOnFile
+	 * - StandingOrder
+	 * - Subscription
+	 * - Installment
+	 *
+	 * Se InitiatedTransactionIndicator.Category = “M2”
+	 * - PartialShipment
+	 * - RelatedOrDelayedCharge
+	 * - NoShow
+	 * - Resubmission
+	 */
+	public enum Subcategory {
+		CredentialsOnFile,
+		StandingOrder,
+		Subscription,
+		Installment,
+		PartialShipment,
+		RelatedOrDelayedCharge,
+		NoShow,
+		Resubmission
+	}
 }
