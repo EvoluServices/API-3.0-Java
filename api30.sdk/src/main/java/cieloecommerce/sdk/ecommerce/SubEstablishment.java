@@ -6,6 +6,8 @@ public class SubEstablishment {
 
   @SerializedName("EstablishmentCode")
   private String establishmentCode;
+  @SerializedName("CompanyName")
+  private String companyName;
   @SerializedName("Identity")
   private String identity;
   @SerializedName("Mcc")
@@ -30,6 +32,15 @@ public class SubEstablishment {
   public SubEstablishment setEstablishmentCode(String establishmentCode) {
     this.establishmentCode = establishmentCode;
     return this;
+  }
+
+  public SubEstablishment setCompanyName(String companyName) {
+    this.companyName = companyName;
+    return this;
+  }
+
+  public String getCompanyName() {
+    return companyName;
   }
 
   public String getIdentity() {
