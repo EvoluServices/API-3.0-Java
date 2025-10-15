@@ -494,7 +494,7 @@ public class Payment {
 	 * oriundas de link de pagamento.
 	 */
 	public enum PaymentSolutionType {
-	    EXTERNAL_LINK_PAY
+	    ExternalLinkPay
 	}
 
     public ExternalAuthentication getExternalAuthentication() {
