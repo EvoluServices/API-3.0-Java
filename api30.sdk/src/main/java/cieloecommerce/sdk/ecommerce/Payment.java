@@ -89,6 +89,8 @@ public class Payment {
 	private Integer voidedAmount;
 	@SerializedName("VoidedDate")
 	private String voidedDate;
+	@SerializedName("SolutionType")
+	private PaymentSolutionType solutionType;
 	@SerializedName("QrCodeBase64Image")
 	private String qrCodeBase64Image;
 	@SerializedName("ExternalAuthentication")
@@ -455,6 +457,15 @@ public class Payment {
 		return voidedDate;
 	}
 
+	public PaymentSolutionType getSolutionType() {
+		return solutionType;
+	}
+
+	public Payment setSolutionType(PaymentSolutionType solutionType) {
+		this.solutionType = solutionType;
+		return this;
+	}
+
 	public String getQrCodeBase64Image() {
 		return qrCodeBase64Image;
 	}
@@ -473,6 +484,17 @@ public class Payment {
 
 	public enum Currency {
 		BRL, USD, MXN, COP, CLP, ARS, PEN, EUR, PYN, UYU, VEB, VEF, GBP
+	}
+
+	/**
+	 * Representa os tipos de solução de pagamento aceitos pela Cielo.
+	 * <p>
+	 * Este enum é utilizado para serializar e desserializar o campo JSON
+	 * <b>Payment.SolutionType</b>, obrigatório em transações com a bandeira Elo
+	 * oriundas de link de pagamento.
+	 */
+	public enum PaymentSolutionType {
+	    EXTERNAL_LINK_PAY
 	}
 
     public ExternalAuthentication getExternalAuthentication() {
