@@ -37,6 +37,10 @@ public class Payment {
 	private Provider provider;
 	@SerializedName("PaymentId")
 	private String paymentId;
+	@SerializedName("IssuerTransactionId")
+	private String issuerTransactionId;
+	@SerializedName("TransactionLinkId")
+	private String transactionLinkId;
 	@SerializedName("Type")
 	private Type type;
 	@SerializedName("Amount")
@@ -236,6 +240,24 @@ public class Payment {
 
 	public Payment setPaymentId(String paymentId) {
 		this.paymentId = paymentId;
+		return this;
+	}
+
+	public String getIssuerTransactionId() {
+		return issuerTransactionId;
+	}
+
+	public Payment setIssuerTransactionId(String issuerTransactionId) {
+		this.issuerTransactionId = issuerTransactionId;
+		return this;
+	}
+
+	public String getTransactionLinkId() {
+		return transactionLinkId;
+	}
+
+	public Payment setTransactionLinkId(String transactionLinkId) {
+		this.transactionLinkId = transactionLinkId;
 		return this;
 	}
 

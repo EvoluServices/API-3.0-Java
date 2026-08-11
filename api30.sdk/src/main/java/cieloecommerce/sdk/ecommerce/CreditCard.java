@@ -6,8 +6,14 @@ public class CreditCard {
 	@SerializedName("CardNumber")
 	private String cardNumber;
 
+	@SerializedName("CardNumberType")
+	private CardNumberType cardNumberType;
+
 	@SerializedName("Holder")
 	private String holder;
+
+	@SerializedName("Cryptogram")
+	private String cryptogram;
 
 	@SerializedName("ExpirationDate")
 	private String expirationDate;
@@ -44,6 +50,24 @@ public class CreditCard {
 
 	public CreditCard setCardNumber(String cardNumber) {
 		this.cardNumber = cardNumber;
+		return this;
+	}
+
+	public CardNumberType getCardNumberType() {
+		return cardNumberType;
+	}
+
+	public CreditCard setCardNumberType(CardNumberType cardNumberType) {
+		this.cardNumberType = cardNumberType;
+		return this;
+	}
+
+	public String getCryptogram() {
+		return cryptogram;
+	}
+
+	public CreditCard setCryptogram(String cryptogram) {
+		this.cryptogram = cryptogram;
 		return this;
 	}
 
@@ -90,5 +114,9 @@ public class CreditCard {
 	public CreditCard setSecurityCode(String securityCode) {
 		this.securityCode = securityCode;
 		return this;
+	}
+
+	public enum CardNumberType {
+		PAN, DPAN
 	}
 }
